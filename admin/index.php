@@ -1,0 +1,10 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!empty($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+    header("Location: dashboard.php");
+} else {
+    header("Location: login.php");
+}
+exit;
